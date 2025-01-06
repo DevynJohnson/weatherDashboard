@@ -11,7 +11,8 @@ This application can be used to view a 5-day weather forecast for any number of 
 
 ## Credits
 <p>This project was created by Devyn Johnson. <a href="https://github.com/DevynJohnson">Github</a> | <a href="https://www.linkedin.com/in/devyn-johnson-a5259213b">LinkedIn</a> | <a href="https://devynjohnson.github.io/online-portfolio/">Portfolio</a>.</p>
-<p>Weather information is obtained using OpenWeather API. More information can be found <a href="https://openweathermap.org/">here</a>.
+<p>Weather information is obtained using <a href="https://openweathermap.org/">OpenWeather API</a>.
+<p>This application uses the <a href="https://www.npmjs.com/package/short-unique-id">short-unique-id</a> npm package.
 <p>This application contains code supplied by <a href="https://www.edx.org/">edX Bootcamps LLC</a>.</p>
 <p>This application uses <a href="https://vite.dev/">Vite</a> to compile code and is hosted using <a href="https://render.com/">Render</a>.
 
