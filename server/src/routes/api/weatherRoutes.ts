@@ -11,7 +11,9 @@ router.post('/', (req, res) => {
 });
 
 // TODO: GET search history
-router.get('/history', async (req, res) => {});
+router.get('/history', async (req, res) => {
+  
+});
 
 // * BONUS TODO: DELETE city from search history
 router.delete('/history/:id', async (req, res) => {});
