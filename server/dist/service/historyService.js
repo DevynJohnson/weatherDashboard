@@ -11,11 +11,11 @@ class HistoryService {
     // TODO: Define a read method that reads from the searchHistory.json file
     async read() {
         try {
-            const data = readFileSync('searchHistory.json', 'utf-8');
+            const data = readFileSync('db/searchHistory.json', 'utf-8');
             return JSON.parse(data);
         }
         catch (error) {
-            console.log('Error reading search history file');
+            console.log(error);
             return [];
         }
     }
