@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import fetch from 'node-fetch';
 dotenv.config();
 // TODO: Define a class for the Weather object
 class Weather {
@@ -12,8 +13,8 @@ class Weather {
 // TODO: Complete the WeatherService class
 class WeatherService {
     constructor(baseURL, apiKey, cityName) {
-        this.baseURL = baseURL;
-        this.apiKey = apiKey;
+        this.baseURL = process.env.BASE_URL || baseURL;
+        this.apiKey = process.env.API_KEY || apiKey;
         this.cityName = cityName;
     }
     // TODO: Create buildGeocodeQuery method
@@ -28,7 +29,7 @@ class WeatherService {
             throw new Error('Failed to fetch location data');
         }
         const data = await response.json();
-        if (!data.length) {
+        if (data.length === 0) {
             throw new Error('No location data found');
         }
         return { lat: data[0].lat, lon: data[0].lon };
@@ -53,6 +54,7 @@ class WeatherService {
         if (!response.ok) {
             throw new Error('Failed to fetch weather data');
         }
+        console.log(response.json());
         return response.json();
     }
     // TODO: Build parseCurrentWeather method
@@ -83,4 +85,4 @@ class WeatherService {
         }
     }
 }
-export default new WeatherService('https://api.openweathermap.org/data/3.0', process.env.OPENWEATHER_API_KEY || '', '');
+export default new WeatherService('https://api.openweathermap.org/data/3.0', process.env.API_KEY || '', '');

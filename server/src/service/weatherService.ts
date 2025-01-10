@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import fetch from 'node-fetch';
 dotenv.config();
 
 // TODO: Define an interface for the Coordinates object
@@ -28,8 +29,8 @@ class WeatherService {
   private cityName: string;
 
   constructor (baseURL: string, apiKey: string, cityName: string) {
-    this.baseURL = baseURL;
-    this.apiKey = apiKey;
+    this.baseURL = process.env.BASE_URL || baseURL;
+    this.apiKey = process.env.API_KEY || apiKey;
     this.cityName = cityName;
   }
   // TODO: Create buildGeocodeQuery method
@@ -41,15 +42,20 @@ class WeatherService {
   private async fetchLocationData(): Promise<Coordinates> {
     const geocodeQuery = this.buildGeocodeQuery();
     const response = await fetch(geocodeQuery);
+
     if (!response.ok) {
       throw new Error('Failed to fetch location data');
     }
-    const data = await response.json();
-    if (!data.length) {
+
+    const data: { lat: number; lon: number }[] = await response.json() as { lat: number; lon: number }[];
+
+    if (data.length === 0) {
       throw new Error('No location data found');
     }
+
     return {lat: data[0].lat, lon: data[0].lon};
   }
+
   // TODO: Create destructureLocationData method
   private destructureLocationData(locationData: Coordinates): Coordinates {
     return {lat: locationData.lat, lon: locationData.lon};
@@ -73,6 +79,7 @@ class WeatherService {
     if (!response.ok) {
       throw new Error('Failed to fetch weather data');
     }
+    console.log(response.json());
     return response.json();
   }
 
@@ -99,7 +106,7 @@ class WeatherService {
     try {
     this.cityName = city;
     const coordinates = await this.fetchAndDestructureLocationData();
-    const weatherData = await this.fetchWeatherData(coordinates);
+    const weatherData = await this.fetchWeatherData(coordinates) as any;
     const currentWeather = this.parseCurrentWeather(weatherData);
     const forecast = this.buildForecastArray(weatherData.daily);
     return { currentWeather, forecast };
@@ -112,4 +119,4 @@ class WeatherService {
 
 
 
-export default new WeatherService('https://api.openweathermap.org/data/3.0', process.env.OPENWEATHER_API_KEY || '', '');
+export default new WeatherService('https://api.openweathermap.org/data/3.0', process.env.API_KEY || '', '');
