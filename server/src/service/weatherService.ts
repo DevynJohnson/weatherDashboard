@@ -41,7 +41,13 @@ class WeatherService {
   private async fetchLocationData(): Promise<Coordinates> {
     const geocodeQuery = this.buildGeocodeQuery();
     const response = await fetch(geocodeQuery);
+    if (!response.ok) {
+      throw new Error('Failed to fetch location data');
+    }
     const data = await response.json();
+    if (!data.length) {
+      throw new Error('No location data found');
+    }
     return {lat: data[0].lat, lon: data[0].lon};
   }
   // TODO: Create destructureLocationData method
@@ -50,7 +56,7 @@ class WeatherService {
   }
   // TODO: Create buildWeatherQuery method
   private buildWeatherQuery(coordinates: Coordinates): string {
-    return `${this.baseURL}/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${this.apiKey}/`
+    return `${this.baseURL}/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${this.apiKey}`;
 
   }
   // TODO: Create fetchAndDestructureLocationData method
@@ -59,16 +65,23 @@ class WeatherService {
     return this.destructureLocationData(locationData);
 
   }
+
   // TODO: Create fetchWeatherData method
   private async fetchWeatherData(coordinates: Coordinates) {
     const weatherQuery = this.buildWeatherQuery(coordinates);
     const response = await fetch(weatherQuery);
+    if (!response.ok) {
+      throw new Error('Failed to fetch weather data');
+    }
     return response.json();
   }
 
   // TODO: Build parseCurrentWeather method
   private parseCurrentWeather(response: any): Weather {
     const currentWeather = response.current;
+    if (!currentWeather) {
+      throw new Error('No current weather data found');
+    }
     return new Weather(this.cityName, currentWeather.temp, currentWeather.wind_speed, currentWeather.humidity);
 
   }
@@ -83,13 +96,20 @@ class WeatherService {
   }
   // TODO: Complete getWeatherForCity method
   async getWeatherForCity(city: string): Promise<any> {
+    try {
     this.cityName = city;
     const coordinates = await this.fetchAndDestructureLocationData();
     const weatherData = await this.fetchWeatherData(coordinates);
     const currentWeather = this.parseCurrentWeather(weatherData);
     const forecast = this.buildForecastArray(weatherData.daily);
-    return {currentWeather, forecast};
+    return { currentWeather, forecast };
+  } catch (error) {
+    console.error('Error in getWeatherForCity:', error);
+    throw new Error('Failed to retrieve weather data');
+  }
   }
 }
+
+
 
 export default new WeatherService('https://api.openweathermap.org/data/3.0', process.env.OPENWEATHER_API_KEY || '', '');
