@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Description An application allowing users to see a 5 day weather forecast for multiple cities.",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -19,6 +19,6 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
-
-  }
+  },
+  "keywords": []
 }
