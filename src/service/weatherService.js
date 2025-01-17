@@ -5,7 +5,8 @@ dotenv.config();
 // console.log(process.env.BASE_URL);
 
 // TODO: Define an interface for the Coordinates object
-class Coordinates {
+
+class Coordinates { // Creating class for Coordinates instead of interface as it is not supported in JavaScript
     constructor(latitude, longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
@@ -13,21 +14,21 @@ class Coordinates {
 }
 
 // TODO: Define a class for the Weather object
-class Weather {
-    constructor(temperature, windSpeed, humidity) {
+class Weather { 
+    constructor(temperature, windSpeed, humidity) { // Using temperature, windSpeed, and humidity as properties of Weather class as that is what is displayed in the UI
         this.temperature = temperature;
         this.windSpeed = windSpeed;
         this.humidity = humidity;
     }
 }
 // TODO: Complete the WeatherService class
-class WeatherService {
+class WeatherService { 
     constructor() {
         this.apiKey = process.env.API_KEY;
         this.baseURL = process.env.BASE_URL;
     }
 
-    async getWeather() {
+    async getWeather() { 
         const url = `${this.baseURL}/weather?lat=${Coordinates.latitude}&lon=${Coordinates.longitude}&appid=${this.apiKey}`;
         const response = await fetch(url);
         const data = await response.json();
