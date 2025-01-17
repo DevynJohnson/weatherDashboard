@@ -1,6 +1,12 @@
 import fs from 'fs';
 import path from 'path'; 
+import { fileURLToPath } from 'url';
 import { v4 as uuidv4 } from 'uuid'; // This package allows for the creation of unique IDs for each city
+
+
+// Resolve __dirname in ES Module scope
+const __filename = fileURLToPath(import.meta.url); // Set __filename to the path of the current file
+const __dirname = path.dirname(__filename); // Set __dirname to the directory of the current file
 
 const dbPath = path.join(__dirname, '../../db/searchHistory.json'); // Set path to the searchHistory.json file as a variable to make it easier to reference
 
