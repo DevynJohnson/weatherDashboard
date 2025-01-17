@@ -28,12 +28,13 @@ const fetchWeather = async (cityName) => {
     renderForecast(weatherData.slice(1));
 };
 const fetchSearchHistory = async () => {
-    const history = await fetch('/api/weather/history', {
+    const response = await fetch('/api/weather/history', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
         },
     });
+    const history = await response.json();
     return history;
 };
 const deleteCityFromHistory = async (id) => {
@@ -52,7 +53,7 @@ Render Functions
 const renderCurrentWeather = (currentWeather) => {
     const { city, date, icon, iconDescription, tempF, windSpeed, humidity } = currentWeather;
     // convert the following to typescript
-    heading.textContent = `${city.name} (${date})`;
+    heading.textContent = `${city} (${date})`;
     weatherIcon.setAttribute('src', `https://openweathermap.org/img/w/${icon}.png`);
     weatherIcon.setAttribute('alt', iconDescription);
     weatherIcon.setAttribute('class', 'weather-img');
@@ -94,7 +95,7 @@ const renderForecastCard = (forecast) => {
     }
 };
 const renderSearchHistory = async (searchHistory) => {
-    const historyList = await searchHistory.json();
+    const historyList = await searchHistory;
     if (searchHistoryContainer) {
         searchHistoryContainer.innerHTML = '';
         if (!historyList.length) {
