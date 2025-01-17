@@ -1,4 +1,3 @@
-import './styles/jass.css';
 // * All necessary DOM elements selected
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
@@ -53,7 +52,7 @@ Render Functions
 const renderCurrentWeather = (currentWeather) => {
     const { city, date, icon, iconDescription, tempF, windSpeed, humidity } = currentWeather;
     // convert the following to typescript
-    heading.textContent = `${city} (${date})`;
+    heading.textContent = `${city.name} (${date})`;
     weatherIcon.setAttribute('src', `https://openweathermap.org/img/w/${icon}.png`);
     weatherIcon.setAttribute('alt', iconDescription);
     weatherIcon.setAttribute('class', 'weather-img');

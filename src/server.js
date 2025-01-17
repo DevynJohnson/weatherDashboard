@@ -1,21 +1,29 @@
 import dotenv from 'dotenv';
 import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
 dotenv.config();
 
 // Import the routes
-import routes from './routes/index.js';
+import routes from './routes/api/weatherRoutes.js';
+import htmlRoutes from './routes/htmlRoutes.js';
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// TODO: Serve static files of entire client dist folder
-app.use(express.static('client/dist'));
+// Resolve __dirname in ES Module scope
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// TODO: Implement middleware for parsing JSON and urlencoded form data
+// Serve static files of entire client dist folder
+app.use(express.static('./client/public'));
+
+// Implement middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// TODO: Implement middleware to connect the routes
-app.use(routes);
+// Implement middleware to connect the routes
+app.use('/api/weather', routes);
+app.use('/', htmlRoutes);
 
 // Start the server on the port
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
