@@ -4,7 +4,7 @@
 An application that uses <a href="https://openweathermap.org/">OpenWeather API</a> data to display the current weather alongside a 5-day forecast for a city chosen by the user. 
 
 ## Installation
-No installion is requried to use this application, it is designed to be used through a web broswer.
+No installation is requried to use this application, it is designed to be accessed through a web broswer.
 
 ## Usage
 This application has a front-end UI users can interact with using a web browser.
