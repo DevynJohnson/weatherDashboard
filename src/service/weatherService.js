@@ -23,16 +23,13 @@ class WeatherService {
 
     async getWeather(city) { 
         const url = `${this.baseURL}weather?q=${city}&appid=${this.apiKey}&units=imperial`;
-        console.log(url);
         try {
             const response = await fetch(url);
             const data = await response.json();
-            console.log(data);
 
             const fiveDayUrl = `${this.baseURL}forecast?q=${city}&appid=${this.apiKey}&units=imperial`;
             const fiveDayResponse = await fetch(fiveDayUrl);
             const fiveDayData = await fiveDayResponse.json();
-            console.log(fiveDayData);
 
             const currentWeather = new Weather(
                 data.name,
@@ -68,6 +65,5 @@ class WeatherService {
         }
     }
 }
-
 
 export default new WeatherService();

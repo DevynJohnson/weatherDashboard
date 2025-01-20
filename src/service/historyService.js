@@ -27,11 +27,30 @@ class HistoryService {
     }
 
     async saveCity(cityName) {
-        const city = new City(cityName);
-        const history = await this.getHistory();
-        history.push(city);
-        await fs.promises.writeFile(dbPath, JSON.stringify(history, null, 2));
-        return history;
+        if (!cityName) {
+            throw new Error('City name is required');
+        }
+    
+        let history = await this.getHistory();
+    
+        // Check if the city already exists in history
+        const existingCity = history.find(city => city.name.toLowerCase() === cityName.toLowerCase());
+    
+        if (existingCity) {
+            // If city exists, return the existing city without creating a new UUID
+            return existingCity;
+        }
+    
+        // If city does not exist, create a new city with a new UUID
+        const newCity = {
+            name: cityName,
+            id: uuidv4(),
+        };
+    
+        history.push(newCity);
+    
+        await fs.promises.writeFile(this.historyFile, JSON.stringify(history, null, 2), 'utf-8');
+        return newCity;
     }
 
     async deleteCity(id) {

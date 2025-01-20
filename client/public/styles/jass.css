@@ -1301,7 +1301,7 @@ label form [type='radio'] {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  margin-left: -15px;
+  margin-left: 0px;
   margin-right: -15px;
 }
 

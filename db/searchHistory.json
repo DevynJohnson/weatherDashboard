@@ -1,115 +1,22 @@
 [
   {
-    "id": "d6158495-735d-42c5-b987-07722f6a12ec"
-  },
-  {
-    "id": "c8ffb225-327d-4edd-b111-ae6df1d2f98c"
-  },
-  {
-    "id": "916c1822-f313-42d3-a968-4c9141b49c4e"
-  },
-  {
     "name": "Minneapolis",
-    "id": "b4da6174-f1fa-4cc3-87b3-25544ed46691"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "b52d9d93-81fa-43e7-a737-40320f0c339b"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "e6712dcc-13c0-40ac-8623-b05d2ce3ffad"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "327dee53-493f-43be-bbb7-ab12cefeaf47"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "f6d8b480-77a4-43c4-a79b-8d6844d0c889"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "cad568db-ea31-4116-a472-9f535485efa0"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "b0880dc7-e20a-4f15-b8e4-9744c0c390fe"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "f5e3d522-fbed-469c-bf33-e4fe530a4227"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "f82ca1e7-f39a-4b09-9325-93c98614ee87"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "6d34752d-fa81-4d80-93c1-657852bdc637"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "487a7b4e-c7fa-4c56-86b9-06de1425fe73"
+    "id": "d998cb0b-3943-43ff-bc3e-fb0879944d72"
   },
   {
     "name": "San Diego",
-    "id": "f8bd84ef-bc28-4d4b-8545-38cb892dbc6e"
+    "id": "b3cce28a-03b1-40bb-8b15-d2bb8bee0621"
   },
   {
-    "name": "Minneapolis",
-    "id": "0ac87e38-3f62-4866-9363-929a2ba510b7"
+    "name": "Chicago",
+    "id": "615d73a3-bd55-46a8-9406-b41f88f4a855"
   },
   {
-    "name": "Minneapolis",
-    "id": "034675a1-f6a3-49cc-a9c3-5e5c214dc7d6"
+    "name": "Miami",
+    "id": "43d64201-9ad3-408a-9a5b-fbc33c8f2900"
   },
   {
-    "name": "Minneapolis",
-    "id": "de163b9d-4672-48fb-9a36-0b347d51e15c"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "7ef785f4-9acb-4b8f-a467-f5b04d269313"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "f8c283ac-7a17-4fec-9691-3913c17ac4e3"
-  },
-  {
-    "name": "San Diego",
-    "id": "99e1f66b-f01d-4cd1-912e-d1326fd0f3f8"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "86cab29f-e104-478e-b642-82933ec44c82"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "5dcf9e8d-925a-4819-810e-a1fa991a08c3"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "7c790103-5274-413a-ad92-5610be01b70f"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "279ea945-c83a-4b41-9077-5009e7b38d4c"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "9aad3d48-9e3c-4691-bac5-c71769c2e6ba"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "b02a9b26-b7c7-400d-87e7-57f8cdec7b0b"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "c0099fa2-1e7d-4f2c-80cf-b18449269016"
-  },
-  {
-    "name": "Minneapolis",
-    "id": "be02d28c-0287-48c6-9e29-b47956f84107"
+    "name": "Portland",
+    "id": "f35e60bf-5724-46a4-b4fc-e9cbd016b447"
   }
 ]
