@@ -1,4 +1,4 @@
-import fs from 'fs';
+import { readFile, writeFile } from 'fs/promises';
 import path from 'path'; 
 import { fileURLToPath } from 'url';
 import { v4 as uuidv4 } from 'uuid'; // This package allows for the creation of unique IDs for each city
@@ -22,7 +22,9 @@ class City {
 // TODO: Complete the HistoryService class
 class HistoryService {
     async getHistory() {
-        const data = await fs.promises.readFile(dbPath, 'utf-8');
+        const data = await readFile("db/searchHistory.json", "utf-8");
+        // console.log(data);
+    //     const data = await fs.promises.readFile(dbPath, 'utf-8');
         return JSON.parse(data);
     }
 

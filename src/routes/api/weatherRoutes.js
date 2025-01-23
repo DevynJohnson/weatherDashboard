@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
 });
 
 // GET weather data from city name
-router.get('/:city', async (req, res) => {
+router.get('/city/:city', async (req, res) => {
     const city = req.params.city;
     const weather = await WeatherService.getWeather(city);
     res.json(weather);
@@ -27,8 +27,16 @@ router.post('/history', async (req, res) => {
 
 // GET search history
 router.get('/history', async (_req, res) => {
-    const history = await HistoryService.getHistory();
-    res.json(history);
+    
+    try {
+
+        const history = await HistoryService.getHistory();
+        // console.log(history);
+        res.json(history);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json(error.message);
+};
 });
 
 // DELETE city from search history
