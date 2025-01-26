@@ -51,14 +51,14 @@ class HistoryService {
     
         history.push(newCity);
     
-        await fs.promises.writeFile(this.historyFile, JSON.stringify(history, null, 2), 'utf-8');
+        await writeFile(dbPath, JSON.stringify(history, null, 2), 'utf-8');
         return newCity;
     }
 
     async deleteCity(id) {
         let history = await this.getHistory();
         history = history.filter(city => city.id !== id);
-        await fs.promises.writeFile(dbPath, JSON.stringify(history, null, 2));
+        await writeFile(dbPath, JSON.stringify(history, null, 2));
         return history;
     }
 }

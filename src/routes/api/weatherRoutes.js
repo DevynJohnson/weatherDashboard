@@ -5,10 +5,15 @@ import WeatherService from '../../service/weatherService.js';
 
 // POST Request with city name to retrieve weather data
 router.post('/', async (req, res) => {
-    const city = req.body.cityName;
-    const weather = await WeatherService.getWeather(city);
-    await HistoryService.saveCity(city); // Save city to search history
-    res.json(weather);
+    try {
+        const city = req.body.cityName;
+        const weather = await WeatherService.getWeather(city);
+        await HistoryService.saveCity(city); // Save city to search history
+        res.json(weather);
+    } catch (error) {
+        console.error('Error in POST /api/weather/:', error.stack);
+        res.status(500).json(error.message);
+    }
 });
 
 // GET weather data from city name
