@@ -12,11 +12,15 @@
     "id": "615d73a3-bd55-46a8-9406-b41f88f4a855"
   },
   {
-    "name": "Miami",
-    "id": "43d64201-9ad3-408a-9a5b-fbc33c8f2900"
-  },
-  {
     "name": "Portland",
     "id": "f35e60bf-5724-46a4-b4fc-e9cbd016b447"
+  },
+  {
+    "name": "Cleveland",
+    "id": "aaa79448-4ddb-48b0-a714-c445c830db50"
+  },
+  {
+    "name": "Miami",
+    "id": "a609ba1a-de47-4bfe-b12f-5a856d52e4bc"
   }
 ]
