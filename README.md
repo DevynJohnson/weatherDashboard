@@ -10,7 +10,7 @@ No installation is requried to use this application, it is designed to be access
 This application has a front-end UI users can interact with using a web browser.
 
 ## Credits
-<p>This project was created by Devyn Johnson. <a href="https://github.com/DevynJohnson">Github</a> | <a href="https://www.linkedin.com/in/devyn-johnson-a5259213b">LinkedIn</a> | <a href="https://devynjohnson.github.io/online-portfolio/">Portfolio</a>.</p>
+<p>This project was created by Devyn Johnson. <a href="https://github.com/DevynJohnson">Github</a> | <a href="https://www.linkedin.com/in/devyn-johnson-a5259213b">LinkedIn</a> | <a href="https://devynjohnsonportfolio.netlify.app/">Portfolio</a>.</p>
 <p>Weather information is obtained using <a href="https://openweathermap.org/">OpenWeather API</a>.
 <p>This application uses the following npm packages: <a href="https://www.npmjs.com/package/dayjs">dayjs</a>, <a href="https://www.npmjs.com/package/dotenv">dotenv</a>, <a href="https://www.npmjs.com/package/express">express</a>, <a href="https://www.npmjs.com/package/path">path</a>, <a href="https://www.npmjs.com/package/uuid">uuid</a>, <a href="https://www.npmjs.com/package/nodemon">nodemon</a>.
 <p>This application contains code supplied by <a href="https://www.edx.org/">edX Bootcamps LLC</a>.</p>
